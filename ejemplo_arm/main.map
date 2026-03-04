@@ -1,0 +1,177 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00040000         xr
+SRAM1            0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x20010000                        _estack = (ORIGIN (SRAM1) + LENGTH (SRAM1))
+
+.text           0x08000000      0x2a0
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector_tbl)
+ .isr_vector_tbl
+                0x08000000      0x1a0 startup.o
+                0x08000000                vector_table
+ *(.text)
+ .text          0x080001a0       0x58 main.o
+                0x080001a0                main
+ .text          0x080001f8       0x20 test.o
+                0x080001f8                sum
+ .text          0x08000218       0x88 startup.o
+                0x08000218                Reset_Handler
+                0x08000298                FLASH_IRQTHandler
+                0x08000298                RCC_IRQTHandler
+                0x08000298                SPI2_4_IRQTHandler
+                0x08000298                DFSM1_FLT0_IRQTHandler
+                0x08000298                SP13_IRQTHandler
+                0x08000298                NMI_Handler
+                0x08000298                TIM1_UP_IRQTHandler
+                0x08000298                Mem_Manage_Handler
+                0x08000298                Sys_Tick_Handler
+                0x08000298                Pend_SV_Handler
+                0x08000298                DFSM1_FLT1_IRQTHandler
+                0x08000298                CAN1_RX0_IRQTHandler
+                0x08000298                Bus_Fault_Handler
+                0x08000298                DMA1_CH3_IRQTHandler
+                0x08000298                DMA1_CH7_IRQTHandler
+                0x08000298                PVD_PVM_IRQTHandler
+                0x08000298                SPI1_IRQTHandler
+                0x08000298                COMP3_IRQTHandler
+                0x08000298                TIM1_CC_IRQTHandler
+                0x08000298                RNG_IRQTHandler
+                0x08000298                I2C3_EV_IRQTHandler
+                0x08000298                USB_FS_IRQTHandler
+                0x08000298                RTC_WKUP_IRQTHandler
+                0x08000298                TIM6_DACUNDER_IRQTHandler
+                0x08000298                EXTI1_IRQTHandler
+                0x08000298                LPTIM1_IRQTHandler
+                0x08000298                I2C1_EV_IRQTHandler
+                0x08000298                I2C3_ER_IRQTHandler
+                0x08000298                DMA2_CH3_IRQTHandler
+                0x08000298                SDMMC1_4_1_IRQTHandler
+                0x08000298                TIM1_TRG_COM__IRQTHandler
+                0x08000298                SWPMI1_5_IRQTHandler
+                0x08000298                EXTI2_IRQTHandler
+                0x08000298                LCD_IRQTHandler
+                0x08000298                DMA1_CH4_IRQTHandler
+                0x08000298                UART_IRQTHandler
+                0x08000298                DMA1_CH5_IRQTHandler
+                0x08000298                Default_Handler
+                0x08000298                FPU_IRQTHandler
+                0x08000298                CAN1_TX_IRQTHandler
+                0x08000298                Sv_Call_Handler
+                0x08000298                AES_IRQTHandler
+                0x08000298                TIM7_IRQTHandler
+                0x08000298                I2C1_ER_4_IRQTHandler
+                0x08000298                LPUART1_IRQTHandler
+                0x08000298                DMA1_CH1_IRQTHandler
+                0x08000298                ADC1_2_CH7_IRQTHandler
+                0x08000298                TIM1_BRK_IRQTHandler
+                0x08000298                USART2_IRQTHandler
+                0x08000298                DMA2_CH7_IRQTHandler
+                0x08000298                Debug_Handler
+                0x08000298                DMA2_CH2_IRQTHandler
+                0x08000298                DMA2_CH6_IRQTHandler
+                0x08000298                RTC_TAMP_STAMP_IRQTHandler
+                0x08000298                EXTI0_IRQTHandler
+                0x08000298                COMP2_IRQTHandler
+                0x08000298                Usage_Fault_Handler
+                0x08000298                RTC_ALARM_IRQTHandler
+                0x08000298                CRS_IRQTHandler
+                0x08000298                DMA2_CH4_IRQTHandler
+                0x08000298                I2C4_ER_IRQTHandler
+                0x08000298                I2C1_EV_4_IRQTHandler
+                0x08000298                DMA2_CH1_IRQTHandler
+                0x08000298                LPTIM2_IRQTHandler
+                0x08000298                DMA2_CH5_IRQTHandler
+                0x08000298                EXTI15_10_IRQTHandler
+                0x08000298                CAN1_SCE_IRQTHandler
+                0x08000298                TIM3_IRQTHandler
+                0x08000298                Hard_Fault_Handler
+                0x08000298                USART1_IRQTHandler
+                0x08000298                TIM2_IRQTHandler
+                0x08000298                QUASPI_IRQTHandler
+                0x08000298                USART3_4_IRQTHandler
+                0x08000298                SAI1_1_IRQTHandler
+                0x08000298                I2C4_EV_3_IRQTHandler
+                0x08000298                EXTI4_IRQTHandler
+                0x08000298                CAN1_RX1_IRQTHandler
+                0x08000298                WWDG_IRQTHandler
+                0x08000298                EXIT9_5_IRQTHandler
+                0x08000298                DMA1_CH6_IRQTHandler
+                0x08000298                DMA1_CH2_IRQTHandler
+                0x08000298                TSD_IRQTHandler
+                0x08000298                I2C1_ER_IRQTHandler
+                0x08000298                EXTI3_IRQTHandler
+ *(.rodata)
+                0x080002a0                        . = ALIGN (0x4)
+                0x080002a0                        _etext = .
+
+.glue_7         0x080002a0        0x0
+ .glue_7        0x080002a0        0x0 linker stubs
+
+.glue_7t        0x080002a0        0x0
+ .glue_7t       0x080002a0        0x0 linker stubs
+
+.vfp11_veneer   0x080002a0        0x0
+ .vfp11_veneer  0x080002a0        0x0 linker stubs
+
+.v4_bx          0x080002a0        0x0
+ .v4_bx         0x080002a0        0x0 linker stubs
+
+.iplt           0x080002a0        0x0
+ .iplt          0x080002a0        0x0 startup.o
+
+.rel.dyn        0x080002a0        0x0
+ .rel.iplt      0x080002a0        0x0 startup.o
+
+.data           0x20000000        0x0 load address 0x080002a0
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 main.o
+ .data          0x20000000        0x0 test.o
+ .data          0x20000000        0x0 startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x080002a0
+ .igot.plt      0x20000000        0x0 startup.o
+
+.bss            0x20000000        0x0 load address 0x080002a0
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 main.o
+ .bss           0x20000000        0x0 test.o
+ .bss           0x20000000        0x0 startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+LOAD main.o
+LOAD test.o
+LOAD startup.o
+OUTPUT(main.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 main.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045        0x0 test.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045        0x0 startup.o
+                                 0x46 (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e main.o
+ .ARM.attributes
+                0x0000002e       0x2e test.o
+ .ARM.attributes
+                0x0000005c       0x2e startup.o

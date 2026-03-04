@@ -1,0 +1,263 @@
+
+Discarded input sections
+
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0xc test.o
+ .debug_macro   0x00000000      0xacc test.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .group         0x00000000        0xc startup.o
+ .debug_macro   0x00000000      0xacc startup.o
+ .debug_macro   0x00000000       0x22 startup.o
+ .debug_macro   0x00000000       0x8e startup.o
+ .debug_macro   0x00000000       0x51 startup.o
+ .debug_macro   0x00000000      0x103 startup.o
+ .debug_macro   0x00000000       0x6a startup.o
+ .debug_macro   0x00000000      0x1df startup.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x08000000         0x00040000         xr
+SRAM1            0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x20010000                        _estack = (ORIGIN (SRAM1) + LENGTH (SRAM1))
+
+.text           0x08000000      0x2c8
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector_tbl)
+ .isr_vector_tbl
+                0x08000000      0x1a0 startup.o
+                0x08000000                vector_table
+ *(.text)
+ .text          0x080001a0       0x80 main.o
+                0x080001a0                main
+ .text          0x08000220       0x20 test.o
+                0x08000220                sum
+ .text          0x08000240       0x88 startup.o
+                0x08000240                Reset_Handler
+                0x080002c0                FLASH_IRQTHandler
+                0x080002c0                RCC_IRQTHandler
+                0x080002c0                SPI2_4_IRQTHandler
+                0x080002c0                DFSM1_FLT0_IRQTHandler
+                0x080002c0                SP13_IRQTHandler
+                0x080002c0                NMI_Handler
+                0x080002c0                TIM1_UP_IRQTHandler
+                0x080002c0                Mem_Manage_Handler
+                0x080002c0                Sys_Tick_Handler
+                0x080002c0                Pend_SV_Handler
+                0x080002c0                DFSM1_FLT1_IRQTHandler
+                0x080002c0                CAN1_RX0_IRQTHandler
+                0x080002c0                Bus_Fault_Handler
+                0x080002c0                DMA1_CH3_IRQTHandler
+                0x080002c0                DMA1_CH7_IRQTHandler
+                0x080002c0                PVD_PVM_IRQTHandler
+                0x080002c0                SPI1_IRQTHandler
+                0x080002c0                COMP3_IRQTHandler
+                0x080002c0                TIM1_CC_IRQTHandler
+                0x080002c0                RNG_IRQTHandler
+                0x080002c0                I2C3_EV_IRQTHandler
+                0x080002c0                USB_FS_IRQTHandler
+                0x080002c0                RTC_WKUP_IRQTHandler
+                0x080002c0                TIM6_DACUNDER_IRQTHandler
+                0x080002c0                EXTI1_IRQTHandler
+                0x080002c0                LPTIM1_IRQTHandler
+                0x080002c0                I2C1_EV_IRQTHandler
+                0x080002c0                I2C3_ER_IRQTHandler
+                0x080002c0                DMA2_CH3_IRQTHandler
+                0x080002c0                SDMMC1_4_1_IRQTHandler
+                0x080002c0                TIM1_TRG_COM__IRQTHandler
+                0x080002c0                SWPMI1_5_IRQTHandler
+                0x080002c0                EXTI2_IRQTHandler
+                0x080002c0                LCD_IRQTHandler
+                0x080002c0                DMA1_CH4_IRQTHandler
+                0x080002c0                UART_IRQTHandler
+                0x080002c0                DMA1_CH5_IRQTHandler
+                0x080002c0                Default_Handler
+                0x080002c0                FPU_IRQTHandler
+                0x080002c0                CAN1_TX_IRQTHandler
+                0x080002c0                Sv_Call_Handler
+                0x080002c0                AES_IRQTHandler
+                0x080002c0                TIM7_IRQTHandler
+                0x080002c0                I2C1_ER_4_IRQTHandler
+                0x080002c0                LPUART1_IRQTHandler
+                0x080002c0                DMA1_CH1_IRQTHandler
+                0x080002c0                ADC1_2_CH7_IRQTHandler
+                0x080002c0                TIM1_BRK_IRQTHandler
+                0x080002c0                USART2_IRQTHandler
+                0x080002c0                DMA2_CH7_IRQTHandler
+                0x080002c0                Debug_Handler
+                0x080002c0                DMA2_CH2_IRQTHandler
+                0x080002c0                DMA2_CH6_IRQTHandler
+                0x080002c0                RTC_TAMP_STAMP_IRQTHandler
+                0x080002c0                EXTI0_IRQTHandler
+                0x080002c0                COMP2_IRQTHandler
+                0x080002c0                Usage_Fault_Handler
+                0x080002c0                RTC_ALARM_IRQTHandler
+                0x080002c0                CRS_IRQTHandler
+                0x080002c0                DMA2_CH4_IRQTHandler
+                0x080002c0                I2C4_ER_IRQTHandler
+                0x080002c0                I2C1_EV_4_IRQTHandler
+                0x080002c0                DMA2_CH1_IRQTHandler
+                0x080002c0                LPTIM2_IRQTHandler
+                0x080002c0                DMA2_CH5_IRQTHandler
+                0x080002c0                EXTI15_10_IRQTHandler
+                0x080002c0                CAN1_SCE_IRQTHandler
+                0x080002c0                TIM3_IRQTHandler
+                0x080002c0                Hard_Fault_Handler
+                0x080002c0                USART1_IRQTHandler
+                0x080002c0                TIM2_IRQTHandler
+                0x080002c0                QUASPI_IRQTHandler
+                0x080002c0                USART3_4_IRQTHandler
+                0x080002c0                SAI1_1_IRQTHandler
+                0x080002c0                I2C4_EV_3_IRQTHandler
+                0x080002c0                EXTI4_IRQTHandler
+                0x080002c0                CAN1_RX1_IRQTHandler
+                0x080002c0                WWDG_IRQTHandler
+                0x080002c0                EXIT9_5_IRQTHandler
+                0x080002c0                DMA1_CH6_IRQTHandler
+                0x080002c0                DMA1_CH2_IRQTHandler
+                0x080002c0                TSD_IRQTHandler
+                0x080002c0                I2C1_ER_IRQTHandler
+                0x080002c0                EXTI3_IRQTHandler
+ *(.rodata)
+                0x080002c8                        . = ALIGN (0x4)
+                0x080002c8                        _etext = .
+
+.glue_7         0x080002c8        0x0
+ .glue_7        0x080002c8        0x0 linker stubs
+
+.glue_7t        0x080002c8        0x0
+ .glue_7t       0x080002c8        0x0 linker stubs
+
+.vfp11_veneer   0x080002c8        0x0
+ .vfp11_veneer  0x080002c8        0x0 linker stubs
+
+.v4_bx          0x080002c8        0x0
+ .v4_bx         0x080002c8        0x0 linker stubs
+
+.iplt           0x080002c8        0x0
+ .iplt          0x080002c8        0x0 startup.o
+
+.rel.dyn        0x080002c8        0x0
+ .rel.iplt      0x080002c8        0x0 startup.o
+
+.data           0x20000000        0x0 load address 0x080002c8
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ .data          0x20000000        0x0 main.o
+ .data          0x20000000        0x0 test.o
+ .data          0x20000000        0x0 startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+
+.igot.plt       0x20000000        0x0 load address 0x080002c8
+ .igot.plt      0x20000000        0x0 startup.o
+
+.bss            0x20000000        0x0 load address 0x080002c8
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sbss = .
+ *(.bss)
+ .bss           0x20000000        0x0 main.o
+ .bss           0x20000000        0x0 test.o
+ .bss           0x20000000        0x0 startup.o
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _ebss = .
+LOAD main.o
+LOAD test.o
+LOAD startup.o
+OUTPUT(main.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x00000000      0x520
+ .debug_info    0x00000000      0x32c main.o
+ .debug_info    0x0000032c       0x70 test.o
+ .debug_info    0x0000039c      0x184 startup.o
+
+.debug_abbrev   0x00000000      0x204
+ .debug_abbrev  0x00000000       0xb5 main.o
+ .debug_abbrev  0x000000b5       0x4f test.o
+ .debug_abbrev  0x00000104      0x100 startup.o
+
+.debug_aranges  0x00000000       0x60
+ .debug_aranges
+                0x00000000       0x20 main.o
+ .debug_aranges
+                0x00000020       0x20 test.o
+ .debug_aranges
+                0x00000040       0x20 startup.o
+
+.debug_macro    0x00000000    0x16a8a
+ .debug_macro   0x00000000       0xbf main.o
+ .debug_macro   0x000000bf      0xacc main.o
+ .debug_macro   0x00000b8b       0x28 main.o
+ .debug_macro   0x00000bb3       0x22 main.o
+ .debug_macro   0x00000bd5       0x8e main.o
+ .debug_macro   0x00000c63       0x51 main.o
+ .debug_macro   0x00000cb4      0x103 main.o
+ .debug_macro   0x00000db7       0x6a main.o
+ .debug_macro   0x00000e21      0x1df main.o
+ .debug_macro   0x00001000       0x1c main.o
+ .debug_macro   0x0000101c       0x22 main.o
+ .debug_macro   0x0000103e       0xfb main.o
+ .debug_macro   0x00001139     0x1011 main.o
+ .debug_macro   0x0000214a      0x11f main.o
+ .debug_macro   0x00002269    0x1479f main.o
+ .debug_macro   0x00016a08       0x15 test.o
+ .debug_macro   0x00016a1d       0x6d startup.o
+
+.debug_line     0x00000000      0x588
+ .debug_line    0x00000000      0x2c0 main.o
+ .debug_line    0x000002c0       0x4a test.o
+ .debug_line    0x0000030a      0x27e startup.o
+
+.debug_str      0x00000000    0x7bad5
+ .debug_str     0x00000000    0x7bad5 main.o
+                              0x7bb9d (size before relaxing)
+ .debug_str     0x0007bad5        0x0 test.o
+                               0x2e32 (size before relaxing)
+ .debug_str     0x0007bad5        0x0 startup.o
+                               0x3dde (size before relaxing)
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 main.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045        0x0 test.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045        0x0 startup.o
+                                 0x46 (size before relaxing)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x2e main.o
+ .ARM.attributes
+                0x0000002e       0x2e test.o
+ .ARM.attributes
+                0x0000005c       0x2e startup.o
+
+.debug_frame    0x00000000       0xac
+ .debug_frame   0x00000000       0x28 main.o
+ .debug_frame   0x00000028       0x38 test.o
+ .debug_frame   0x00000060       0x4c startup.o
