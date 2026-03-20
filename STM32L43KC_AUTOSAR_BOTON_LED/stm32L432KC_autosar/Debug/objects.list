@@ -1,0 +1,7 @@
+"./BSW/MCAL/DIO/Dio.o"
+"./BSW/MCAL/MCU/Mcu.o"
+"./BSW/MCAL/PORT/port.o"
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32l432kcux.o"
