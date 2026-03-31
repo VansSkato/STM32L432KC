@@ -1,0 +1,3 @@
+../BSW/MCAL/ADC/ADC.c:7:6:Adc_Init	2
+../BSW/MCAL/ADC/ADC.c:36:6:Adc_StartGroupConversion	2
+../BSW/MCAL/ADC/ADC.c:44:16:Adc_ReadGroup	3

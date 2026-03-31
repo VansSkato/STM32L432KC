@@ -1,0 +1,2 @@
+../BSW/MCAL/DIO/Dio.c:4:16:Dio_ReadChannel	4
+../BSW/MCAL/DIO/Dio.c:25:6:Dio_WriteChannel	5
